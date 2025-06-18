@@ -14,7 +14,7 @@ function renderResultHTML() {
     quote = "Well not bad! Keep learning!";
   } else if (scorePercent >= 40) {
     quote = "Something is better than Nothing!";
-  } else if (scorePercent >= 30) {
+  } else {
     quote = "Uhh.. Were you even trying?";
   }
 
