@@ -1,0 +1,48 @@
+.container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  overflow: hidden;
+}
+
+h1 {
+  color: #fb6f92;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.result {
+  background-color: #ffe5ec;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.score {
+  color: #333;
+}
+
+.quote {
+  color: #fb6f92;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+button {
+  background-color: #fb6f92;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+}
+
+button:hover {
+  background-color: #ff8fab;
+}
