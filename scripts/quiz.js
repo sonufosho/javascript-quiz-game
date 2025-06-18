@@ -27,7 +27,7 @@ document.querySelector('.js-container').innerHTML = quizHTML;
 document.querySelector('.progress').style.width = `${(currentQuestionIndex / questions.length) * 100}%`;
 
 document.querySelectorAll('.answers button').forEach((button) => {
-  button.addEventListener('click', (event) => {
+  button.addEventListener('click', () => {
     const isCorrect = button.dataset.isCorrect;
 
     
