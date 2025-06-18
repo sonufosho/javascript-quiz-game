@@ -1,7 +1,7 @@
 import {questions} from '../data/questions.js';
 
 let currentQuestionIndex = 0;
-let score = 0;
+let score = localStorage.getItem('score') || 0;
 
 function renderquizHTML() {
 const qna = questions[currentQuestionIndex];
@@ -33,6 +33,7 @@ document.querySelectorAll('.answers button').forEach((button) => {
     
     if (isCorrect === 'true') {
       score++;
+      localStorage.setItem('score', score);
       renderquizHTML();
     }
 
