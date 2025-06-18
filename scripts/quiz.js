@@ -38,6 +38,9 @@ document.querySelectorAll('.answers button').forEach((button) => {
 
     if (currentQuestionIndex === questions.length - 1) {
       document.querySelector('.progress').style.width = `${100}%`;
+      setTimeout(() => {
+        window.location.href = 'result.html';
+      }, 1000);
     }
     
     if (currentQuestionIndex < questions.length) {
