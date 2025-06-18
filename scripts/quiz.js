@@ -24,14 +24,20 @@ const quizHTML = `
 `;
 
 document.querySelector('.js-container').innerHTML = quizHTML;
+document.querySelector('.progress').style.width = `${(currentQuestionIndex / questions.length) * 100}%`;
 
 document.querySelectorAll('.answers button').forEach((button) => {
   button.addEventListener('click', (event) => {
     const isCorrect = button.dataset.isCorrect;
-      
+
+    
     if (isCorrect === 'true') {
       score++;
       renderquizHTML();
+    }
+
+    if (currentQuestionIndex === questions.length - 1) {
+      document.querySelector('.progress').style.width = `${100}%`;
     }
     
     if (currentQuestionIndex < questions.length) {
