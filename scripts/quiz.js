@@ -1,5 +1,9 @@
 import {questions} from '../data/questions.js';
 
+if (performance.getEntriesByType('navigation')[0].type === 'reload') {
+    window.location.href = 'index.html';
+  }
+
 let currentQuestionIndex = 0;
 let score = localStorage.getItem('score') || 0;
 
@@ -56,20 +60,6 @@ document.querySelectorAll('.answers button').forEach((button) => {
         document.querySelector('.incorrect').classList.remove();
       }, 1000);
     }
-    
-    // if (currentQuestionIndex < questions.length) {
-    //   setTimeout(() => {
-    //     currentQuestionIndex++;
-    //     renderquizHTML();
-    //   }, 1000);
-
-    //   if (currentQuestionIndex === questions.length - 1) {
-    //     document.querySelector('.progress').style.width = `${100}%`;
-    //     setTimeout(() => {
-    //       window.location.href = 'result.html';
-    //     }, 1000);
-    //   }
-
       setTimeout(() => {
         if (currentQuestionIndex === questions.length - 1) {
           document.querySelector('.progress').style.width = `${100}%`;
