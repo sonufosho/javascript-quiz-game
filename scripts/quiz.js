@@ -29,7 +29,10 @@ const quizHTML = `
 `;
 
 document.querySelector('.js-container').innerHTML = quizHTML;
-document.querySelector('.progress').style.width = `${(currentQuestionIndex / questions.length) * 100}%`;
+
+setTimeout(() => {
+  document.querySelector('.progress').style.width = `${(currentQuestionIndex / questions.length) * 100}%`;
+}, 10);
 
 document.querySelectorAll('.answers button').forEach((button) => {
   button.addEventListener('click', () => {
@@ -39,7 +42,6 @@ document.querySelectorAll('.answers button').forEach((button) => {
     });
 
     const isCorrect = button.dataset.isCorrect;
-
     
     if (isCorrect === 'true') {
       score++;
@@ -60,15 +62,20 @@ document.querySelectorAll('.answers button').forEach((button) => {
         document.querySelector('.incorrect').classList.remove();
       }, 1000);
     }
-      setTimeout(() => {
-        if (currentQuestionIndex === questions.length - 1) {
-          document.querySelector('.progress').style.width = `${100}%`;
+
+    setTimeout(() => {
+      if (currentQuestionIndex === questions.length - 1) {
+        document.querySelector('.progress').style.width = `${100}%`;
+          setTimeout(() => {
           window.location.href = 'result.html';
-        } else if (currentQuestionIndex < questions.length) {
-          currentQuestionIndex++;
-          renderquizHTML();
+        }, 1500);
         }
-      }, 1000);
+
+      if (currentQuestionIndex < questions.length) {
+        currentQuestionIndex++;
+        renderquizHTML();
+      }
+    }, 1000);
   });
 });
 }

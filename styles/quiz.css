@@ -75,5 +75,5 @@ button:hover {
   width: 0%;
   overflow: hidden;
 
-  transition: width 1s;
+  transition: width 0.5s;
 }
