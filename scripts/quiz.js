@@ -29,6 +29,11 @@ document.querySelector('.progress').style.width = `${(currentQuestionIndex / que
 
 document.querySelectorAll('.answers button').forEach((button) => {
   button.addEventListener('click', () => {
+
+    document.querySelectorAll('.answers button').forEach((btn) => {
+        btn.disabled = true;
+    });
+
     const isCorrect = button.dataset.isCorrect;
 
     
@@ -51,21 +56,29 @@ document.querySelectorAll('.answers button').forEach((button) => {
         document.querySelector('.incorrect').classList.remove();
       }, 1000);
     }
-
-
-    if (currentQuestionIndex === questions.length - 1) {
-      document.querySelector('.progress').style.width = `${100}%`;
-      setTimeout(() => {
-        window.location.href = 'result.html';
-      }, 1000);
-    }
     
-    if (currentQuestionIndex < questions.length) {
+    // if (currentQuestionIndex < questions.length) {
+    //   setTimeout(() => {
+    //     currentQuestionIndex++;
+    //     renderquizHTML();
+    //   }, 1000);
+
+    //   if (currentQuestionIndex === questions.length - 1) {
+    //     document.querySelector('.progress').style.width = `${100}%`;
+    //     setTimeout(() => {
+    //       window.location.href = 'result.html';
+    //     }, 1000);
+    //   }
+
       setTimeout(() => {
-        currentQuestionIndex++;
-        renderquizHTML();
+        if (currentQuestionIndex === questions.length - 1) {
+          document.querySelector('.progress').style.width = `${100}%`;
+          window.location.href = 'result.html';
+        } else if (currentQuestionIndex < questions.length) {
+          currentQuestionIndex++;
+          renderquizHTML();
+        }
       }, 1000);
-    }
   });
 });
 }
